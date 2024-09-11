@@ -20,9 +20,9 @@ export default function Home() {
           <Skill />
           <Projects />
           <Contact />
-          <Footer />
         </div>
       </div>
+          <Footer />
     </div>
   );
 }
