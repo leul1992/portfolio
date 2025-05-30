@@ -40,6 +40,7 @@ export default function ProjectDetailClient({ project }) {
   const mediaContainerRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [showControls, setShowControls] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
   const controlsTimeout = useRef(null);
   const lastTapRef = useRef(0);
 
@@ -51,17 +52,23 @@ export default function ProjectDetailClient({ project }) {
       : []),
   ];
 
-  // Disable default video controls
+  // Initialize video elements
   useEffect(() => {
     videoRefs.current.forEach((ref) => {
       if (ref) {
         ref.controls = false;
         ref.muted = isMuted;
+        
+        // Buffering events
+        ref.onwaiting = () => setIsBuffering(true);
+        ref.onplaying = () => setIsBuffering(false);
+        ref.oncanplay = () => setIsBuffering(false);
+        ref.oncanplaythrough = () => setIsBuffering(false);
       }
     });
   }, [isMuted]);
 
-  // Handle fullscreen change
+  // Handle fullscreen changes
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -75,7 +82,7 @@ export default function ProjectDetailClient({ project }) {
     };
   }, []);
 
-  // Handle slide change
+  // Handle slide changes
   const handleSlideChange = (swiper) => {
     setActiveIndex(swiper.activeIndex);
     pauseAllVideos();
@@ -113,7 +120,7 @@ export default function ProjectDetailClient({ project }) {
     }
   };
 
-  // Handle video container click
+  // Handle video container clicks
   const handleVideoClick = (index, e) => {
     if (mediaItems[index]?.type !== "video") return;
     
@@ -133,7 +140,7 @@ export default function ProjectDetailClient({ project }) {
     }
   };
 
-  // Toggle fullscreen
+  // Toggle fullscreen mode
   const toggleFullscreen = (e) => {
     e?.stopPropagation();
     if (!document.fullscreenElement) {
@@ -330,15 +337,22 @@ export default function ProjectDetailClient({ project }) {
                             playsInline
                           />
                           
+                          {/* Buffering indicator */}
+                          {isBuffering && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                            </div>
+                          )}
+                          
                           {/* Video controls overlay */}
                           <div className={`absolute inset-0 ${
                             showControls ? 'bg-gradient-to-t from-black/50 to-transparent' : ''
                           } transition-opacity duration-300 pointer-events-none`}></div>
 
-                          {/* Video controls - positioned at bottom */}
+                          {/* Video controls */}
                           <div className={`absolute bottom-0 left-0 right-0 transition-all duration-300 ${
                             showControls ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-                          }`}>
+                          } z-10`}>
                             <div className="flex flex-col gap-2 p-4">
                               {/* Progress bar */}
                               <div
@@ -415,8 +429,8 @@ export default function ProjectDetailClient({ project }) {
                           </div>
 
                           {/* Play button overlay - only when video is paused */}
-                          {!isPlaying && (
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          {!isPlaying && !isBuffering && (
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
