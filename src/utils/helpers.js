@@ -196,7 +196,17 @@ export const SkillData = [
 
 export const projectsData = [
   {
-    image: '/images/missingperson.jpg',
+    image: [
+      '/images/missing/img1.jpg',
+      '/images/missing/img2.jpg',
+      '/images/missing/img3.jpg',
+      '/images/missing/img4.jpg',
+      '/images/missing/img5.jpg',
+      '/images/missing/img6.jpg',
+      '/images/missing/img7.jpg',
+      '/images/missing/img8.jpg',
+    ],
+    video: '/videos/missing-video.mp4',
     slug: 'missing-person-finder',
     title: 'Missing Person Finder',
     description: 'A Mobile Application and A Website that is used to find missing people.\
@@ -219,7 +229,16 @@ export const projectsData = [
     },
   },
   {
-    image: '/images/reciapp.jpg',
+    image: [
+      '/images/recipe/favourite.png',
+      '/images/recipe/home-page.png',
+      '/images/recipe/recip1.png',
+      '/images/recipe/recipe.png',
+      '/images/recipe/recipe2.png',
+      '/images/recipe/recipe3.png',
+      '/images/recipe/recipe4.png',
+      '/images/recipe/recipe5.png',
+    ],
     slug: 'reciapp',
     title: 'ReciApp',
     description:
@@ -240,7 +259,15 @@ export const projectsData = [
     },
   },
   {
-    image: '/images/trackexp.jpg',
+    image: [
+      '/images/trackexp/img1.jpg',
+      '/images/trackexp/img2.jpg',
+      '/images/trackexp/img3.jpg',
+      '/images/trackexp/img4.jpg',
+      '/images/trackexp/img5.jpg',
+      '/images/trackexp/img6.jpg',
+      '/images/trackexp/img7.jpg',
+    ],
     slug: 'trackexp',
     title: 'TrackExp',
     description: 'TrackExp is a budget tracking Mobile App that allows users to track their expenses.\
@@ -258,7 +285,9 @@ export const projectsData = [
     },
   },
   {
-    image: '/images/inventory.png',
+    image: [
+      '/images/inventory.png'
+    ],
     slug: 'inventory-management-system',
     title: 'Inventory Management System',
     description: 'We implemented a website that is used to store products for buying\
@@ -278,28 +307,52 @@ export const projectsData = [
     },
   },
   {
-    image: '/images/missingperson.jpg',
-    slug: 'missing-person-finder',
-    title: 'Missing Person Finder',
-    description: 'A Mobile Application and A Website that is used to find missing people.\
-    Users can report missing people and also search for missing people.\
-    Users can also get notifications when a missing person is found.',
-    disclaimer: 'The people in the image are NOT missing. The images used are for TESTING purpose ONLY!',
+    image: [
+      '/images/bus/home-page.png',
+      '/images/bus/img1.png',
+      '/images/bus/img2.png',
+      '/images/bus/img3.png',
+      '/images/bus/img4.png',
+      '/images/bus/img5.png',
+      '/images/bus/seat_select.png',
+      '/images/bus/trips.png',
+    ],
+    slug: 'bus-reservation-system',
+    title: 'Bus Reservation System',
+    description: 'A web application that allows users to book bus tickets online.\
+    Users can search for available buses, view their schedules, and book tickets.\
+    Admins can manage the bus schedules and bookings.',
     technologies: [
-      'Flutter',
       'React.js',
-      'Firebase',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'face-api.js',
-      'transformers.js',
+      'Tailwind CSS',
     ],
     links: {
       preview: '',
       github: '',
     },
   },
+  {
+    image: [
+      '/images/cursus/chat.png',
+      '/images/cursus/create_course.png',
+      '/images/cursus/home-page_1.png',
+      '/images/cursus/test.png',
+    ],
+    slug: 'cursus',
+    title: 'Cursus Learning Platform',
+    description: 'A learning platform that allows users to create and join courses.\
+    Users can chat with each other, take quizzes, and view their progress.\
+    Admins can manage the courses and users.',
+    technologies: [
+      'React.js',
+      'Tailwind CSS',
+    ],
+    links: {
+      preview: '',
+      github: '',
+    },
+
+  }
 ]
 
 

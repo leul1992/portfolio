@@ -4,7 +4,9 @@ const nextConfig = {
     domains: [
       'images.unsplash.com',
       'source.unsplash.com',
-      'avatars.githubusercontent.com'
+      'avatars.githubusercontent.com',
+      'localhost:3000',
+      'leul.tech'
     ],
   },
   experimental: {
