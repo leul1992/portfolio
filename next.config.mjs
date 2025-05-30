@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        // Add 'domains' if you plan to load images from external sources
-        domains: [], 
-        // Use 'unoptimized' if you are facing issues with image optimization for local images
-        unoptimized: true,
-      },
+  images: {
+    domains: [
+      'images.unsplash.com',
+      'source.unsplash.com',
+      'avatars.githubusercontent.com'
+    ],
+  },
+  experimental: {
+    serverActions: true,
+  },
+  env: {
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_DOMAIN: process.env.RESEND_DOMAIN,
+    CONTACT_EMAIL: process.env.CONTACT_EMAIL
+  }
 };
 
 export default nextConfig;

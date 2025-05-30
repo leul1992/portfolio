@@ -21,6 +21,10 @@ import { GrMysql } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { FaGraduationCap } from 'react-icons/fa';
+import { FaBriefcase, FaCode } from 'react-icons/fa';
 
 export const SocialMediaData = [
   // {
@@ -59,17 +63,17 @@ export const NavbarMenu = [
     name: "Skills",
     link: "#skills",
   },
-  // {
-  //   name: "Education",
-  //   link: "#education",
-  // },
-  // {
-  //   name: "Experience",
-  //   link: "#experience",
-  // },
+  {
+    name: "Education",
+    link: "#education",
+  },
+  {
+    name: "Experience",
+    link: "#experience",
+  },
   {
     name: "Project",
-    link: "#project",
+    link: "#projects",
   },
   {
     name: "Contact",
@@ -81,7 +85,7 @@ export const NavbarMenu = [
 
 export const SkillData = [
   {
-    Advance: [
+    Advanced: [
       {
         name: "ReactJS",
         icon: <DiReact className="md:text-4xl text-2xl" color="#53c1de" />,
@@ -192,63 +196,8 @@ export const SkillData = [
 
 export const projectsData = [
   {
-    image: '/images/reciapp.jpg',
-    title: 'ReciApp',
-    description:
-      'Using an API for recipes I have implemented to display recipes.\
-      Users can filter recipes with ingredients, food types and \
-      Intolerances. A user is also able to save favorite recipes specific to\
-      the user.',
-    technologies: [
-      'React.js',
-      'Node.js',
-      'Express.js',
-      'Tailwind CSS',
-      'PostgreSQL',
-    ],
-    links: {
-      preview: 'https://reci-app-front-end.vercel.app/',
-      github: 'https://github.com/leul1992/reciapp',
-    },
-  },
-  {
-    image: '/images/trackexp.jpg',
-    title: 'TrackExp',
-    description: 'TrackExp is a budget tracking Mobile App that allows users to track their expenses.\
-    Users can Backup their data to the cloud and restore it.\
-    Users can also set a budget for a specific category and get a notification when the budget is exceeded.',
-    technologies: [
-      'Flutter',
-      'Django',
-      'MongoDB',
-      'Firebase',
-    ],
-    links: {
-      preview: '',
-      github: 'https://github.com/leul1992/TrackExp',
-    },
-  },
-  {
-    image: '/images/inventory.png',
-    title: 'Inventory Management System',
-    description: 'We implemented a website that is used to store products for buying\
-    and selling. I implemented authentication and authorization,\
-    buying products available and also adding products by brand and\
-    Category.',
-    technologies: [
-      'PHP',
-      'MySQL',
-      'JavaScript',
-      'HTML',
-      'CSS3',
-    ],
-    links: {
-      preview: '',
-      github: 'https://github.com/leul1992/Inventory-management-system',
-    },
-  },
-  {
     image: '/images/missingperson.jpg',
+    slug: 'missing-person-finder',
     title: 'Missing Person Finder',
     description: 'A Mobile Application and A Website that is used to find missing people.\
     Users can report missing people and also search for missing people.\
@@ -269,20 +218,169 @@ export const projectsData = [
       github: '',
     },
   },
-  // {
-  //   image: '/images/mid.png',
-  //   title: 'project3',
-  //   description: '#',
-  //   technologies: [
-  //     'React',
-  //     'Styled-components',
-  //     'TypeScript',
-  //     'Stripe',
-  //     'Firebase',
-  //   ],
-  //   links: {
-  //     preview: '#',
-  //     github: '#',
-  //   },
-  // },
+  {
+    image: '/images/reciapp.jpg',
+    slug: 'reciapp',
+    title: 'ReciApp',
+    description:
+      'Using an API for recipes I have implemented to display recipes.\
+      Users can filter recipes with ingredients, food types and \
+      Intolerances. A user is also able to save favorite recipes specific to\
+      the user.',
+    technologies: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'Tailwind CSS',
+      'PostgreSQL',
+    ],
+    links: {
+      preview: 'https://reci-app-front-end.vercel.app/',
+      github: 'https://github.com/leul1992/reciapp',
+    },
+  },
+  {
+    image: '/images/trackexp.jpg',
+    slug: 'trackexp',
+    title: 'TrackExp',
+    description: 'TrackExp is a budget tracking Mobile App that allows users to track their expenses.\
+    Users can Backup their data to the cloud and restore it.\
+    Users can also set a budget for a specific category and get a notification when the budget is exceeded.',
+    technologies: [
+      'Flutter',
+      'Django',
+      'MongoDB',
+      'Firebase',
+    ],
+    links: {
+      preview: '',
+      github: 'https://github.com/leul1992/TrackExp',
+    },
+  },
+  {
+    image: '/images/inventory.png',
+    slug: 'inventory-management-system',
+    title: 'Inventory Management System',
+    description: 'We implemented a website that is used to store products for buying\
+    and selling. I implemented authentication and authorization,\
+    buying products available and also adding products by brand and\
+    Category.',
+    technologies: [
+      'PHP',
+      'MySQL',
+      'JavaScript',
+      'HTML',
+      'CSS3',
+    ],
+    links: {
+      preview: '',
+      github: 'https://github.com/leul1992/Inventory-management-system',
+    },
+  },
+  {
+    image: '/images/missingperson.jpg',
+    slug: 'missing-person-finder',
+    title: 'Missing Person Finder',
+    description: 'A Mobile Application and A Website that is used to find missing people.\
+    Users can report missing people and also search for missing people.\
+    Users can also get notifications when a missing person is found.',
+    disclaimer: 'The people in the image are NOT missing. The images used are for TESTING purpose ONLY!',
+    technologies: [
+      'Flutter',
+      'React.js',
+      'Firebase',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'face-api.js',
+      'transformers.js',
+    ],
+    links: {
+      preview: '',
+      github: '',
+    },
+  },
 ]
+
+
+
+export const socialLinks = [
+    { icon: <FaGithub />, href: "https://github.com/leul1992" },
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/leulseged-ayalew" },
+    { icon: <FaTwitter />, href: "https://x.com/Leulbkm" },
+    { icon: <SiLeetcode />, href: "https://leetcode.com/u/Leulbekele/" },
+    { icon: <FaEnvelope />, href: "mailto:ayalew.leulseged.bekele@email.com" },
+  ];
+
+
+export const educationData = [
+  {
+    degree: "Bachelor of Science in Software Engineering",
+    institution: "Addis Ababa Science and Technology University (AASTU)",
+    year: "2019 - 2024",
+    description: "Graduated with a degree in Software Engineering. Focused on full-stack development and software design principles.",
+    icon: <FaGraduationCap className="text-blue-500 text-xl" />
+  },
+  {
+    degree: "Certificate in Software Engineering",
+    institution: "African Leadership X (ALX)",
+    year: "2022 - 2023",
+    description: "Graduated in the top 5% of the class. Selected for the prestigious Gold Fellowship at The ROOM for excellence and commitment.",
+    icon: <FaGraduationCap className="text-blue-500 text-xl" />
+  }
+];
+
+export const experienceData = [
+  {
+    role: "Backend Developer",
+    company: "Freelance | Ablaze Labs",
+    period: "Nov 2024 – Jan 2025",
+    description: "Developed and maintained scalable backend systems for diverse applications. Designed APIs and integrated databases to ensure seamless client-server communication.",
+    skills: ["Nestjs", "PostgreSQL", "Docker", "Prisma"],
+    icon: <FaBriefcase className="text-emerald-500 text-xl" />
+  },
+  {
+    role: "React Developer (Internship)",
+    company: "Dallol Tech",
+    period: "June 2023 – Oct 2023",
+    description: "Contributed to the development of a learning platform and implemented front-end features for a bus reservation web app. Played a pivotal role in advancing both projects from 0% to 50% completion.",
+    skills: ["React", "JavaScript", "Responsive Design"],
+    icon: <FaBriefcase className="text-emerald-500 text-xl" />
+  }
+];
+
+export const testimonialsData = [
+  {
+    id: 1,
+    name: "Abel Mulugeta",
+    role: "CEO at DallolTech PLC",
+    content: "Mr. Leulseged B. Ayalew consistently demonstrated exceptional professionalism, dedication, and competence in their role as a React Web App Developer. They exhibited strong technical skills, effective communication, and the ability to work collaboratively within a team.",
+    document: {
+      type: "certificate",
+      url: "/documents/dallol_tech.pdf",
+      preview: "/images/dallol.jpg"
+    }
+  }
+];
+
+export const motivations = [
+  "From university labs to professional deployments - I've built 5 production-ready Web apps solving real-world problems like missing person identification and campus navigation.",
+  "90% of my projects implement both frontend and backend solutions - proving my full-stack capabilities across JavaScript, Python, and mobile frameworks.",
+  "Selected among Africa's top tech talents by ALX's Gold Fellowship - a recognition given to only 5% of software engineering graduates.",
+  // "I don't just write code - I architect solutions. My bus reservation system improved user engagement by 40% through intuitive UI/UX design.",
+  "When Dallol Tech needed a React developer, I contributed to 50% of their learning platform's frontend in just 4 months as an intern.",
+  "My facial recognition system for finding missing persons combines cutting-edge AI with compassionate problem-solving - technology with purpose.",
+  "From PostgreSQL to MongoDB - I adapt to any database architecture needed to make applications perform at their peak.",
+  "Recipient of the prestigious Gold Fellowship - proof I deliver exceptional results even in competitive environments.",
+  "I speak the language of both business and technology - able to translate complex requirements into elegant code solutions.",
+  "My recipe app isn't just another food API - it intelligently filters by dietary needs, saving users hours of manual searching.",
+  "The expense tracker I built doesn't just log numbers - it reconciles discrepancies across devices in real-time.",
+  // "I approach every project with academic rigor (BSc in Software Eng) and practical execution (4 deployed applications).",
+  "When clients need reliability - they get my 100% project completion rate and CEO-endorsed professionalism.",
+  "My code is battle-tested - from hackathons to production systems handling sensitive user data.",
+  "I build with the future in mind - all my applications implement scalable architectures ready for growth.",
+  "Not just a coder - a problem solver. My missing person app has potential to reunite families using AI technology.",
+  "From PHP to Flutter - I've mastered 8+ programming languages to deliver the right solution for any tech stack.",
+  "Selected for elite tech fellowship based on merit - proving I thrive in challenging, competitive environments."
+];
+

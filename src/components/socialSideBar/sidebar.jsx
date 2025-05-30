@@ -1,23 +1,35 @@
-import React, { Fragment } from "react";
+"use client";
+import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { SocialMediaData } from "@/utils/helpers";
 
 const SocialMedia = () => {
   return (
-    <Fragment>
-      <div className='lg:fixed lg:bottom-[50%] lg:pl-2 lg:gap-2 flex gap-4 flex-row lg:flex-col z-10'>
-        {SocialMediaData.map((social, key) => (
-          <Link className='w-fit' target='_blank' href={social.link} key={key}>
-            <div
-              className="p-2 rounded-full text-xl text-white"
-              style={{ background: social.color }}
+    <div className="fixed left-4 bottom-1/2 transform translate-y-1/2 z-50 hidden lg:block">
+      <div className="flex flex-col gap-4">
+        {SocialMediaData.map((social, index) => (
+          <motion.div
+            key={index}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: index * 0.1 + 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <Link
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="block p-3 rounded-full text-white transition-all hover:shadow-lg"
+              style={{ backgroundColor: social.color }}
             >
-              {social.icon}
-            </div>
-          </Link>
+              <div className="text-xl">{social.icon}</div>
+            </Link>
+          </motion.div>
         ))}
       </div>
-    </Fragment>
+    </div>
   );
 };
 
