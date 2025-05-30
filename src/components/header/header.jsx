@@ -123,7 +123,7 @@ const Header = () => {
                   className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
                   onClick={() => setShowMenu(false)}
                 >
-                  Leulseged B.
+                  Leulseged
                 </Link>
                 <Button
                   size="icon"
